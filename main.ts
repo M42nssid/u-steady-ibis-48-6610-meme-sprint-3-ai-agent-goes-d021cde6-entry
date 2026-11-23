@@ -254,8 +254,8 @@ function drawOffice(): void {
   fillRect(306, 576, 422, 576, WHITE);
   drawTextCentered("BALI", 364, 596, 4, WHITE);
   drawTextCentered("$899", 364, 632, 3, YELLOW);
-  // arm reaching to laptop
-  thickLine(280, 620, 330, 660, 16, SHIRT);
+  // arm reaching to laptop, kept clear of the fare text
+  thickLine(280, 620, 318, 662, 16, SHIRT);
 }
 
 function drawBeach(): void {
