@@ -141,6 +141,17 @@ const GLYPHS: Record<string, string[]> = {
   X: ["#...#", "#...#", ".#.#.", "..#..", ".#.#.", "#...#", "#...#"],
   Y: ["#...#", "#...#", ".#.#.", "..#..", "..#..", "..#..", "..#.."],
   Z: ["#####", "....#", "...#.", "..#..", ".#...", "#....", "#####"],
+  0: [".###.", "#...#", "#..##", "#.#.#", "##..#", "#...#", ".###."],
+  1: ["..#..", ".##..", "..#..", "..#..", "..#..", "..#..", ".###."],
+  2: [".###.", "#...#", "....#", "...#.", "..#..", ".#...", "#####"],
+  3: ["####.", "....#", "....#", ".###.", "....#", "....#", "####."],
+  4: ["...#.", "..##.", ".#.#.", "#..#.", "#####", "...#.", "...#."],
+  5: ["#####", "#....", "####.", "....#", "....#", "#...#", ".###."],
+  6: [".###.", "#....", "#....", "####.", "#...#", "#...#", ".###."],
+  7: ["#####", "....#", "...#.", "...#.", "..#..", "..#..", "..#.."],
+  8: [".###.", "#...#", "#...#", ".###.", "#...#", "#...#", ".###."],
+  9: [".###.", "#...#", "#...#", ".####", "....#", "....#", ".###."],
+  $: ["..#..", ".####", "#.#..", ".###.", "..#.#", "####.", "..#.."],
   "'": ["..#..", "..#..", "..#..", ".....", ".....", ".....", "....."],
   ".": [".....", ".....", ".....", ".....", ".....", ".##..", ".##.."],
   ",": [".....", ".....", ".....", ".....", ".##..", ".##..", ".#..."],
@@ -224,8 +235,7 @@ function drawOffice(): void {
   drawTextCentered("WORK", 400, 248, 4, YELLOW);
   // user: seated at desk, head + shoulders
   fillCircle(220, 520, 46, SKIN);
-  fillEllipse(220, 492, 46, 30, HAIR); // hair cap
-  fillRect(220, 478, 220, 478, HAIR);
+  fillEllipse(220, 488, 46, 24, HAIR); // hair cap
   // eyes looking at laptop, worried little mouth
   fillCircle(204, 522, 5, BLACK);
   fillCircle(238, 522, 5, BLACK);
@@ -275,14 +285,14 @@ function drawBeach(): void {
   fillEllipse(700, 600, 90, 12, WHITE);
   fillEllipse(900, 650, 110, 12, WHITE);
   fillEllipse(600, 660, 70, 10, WHITE);
-  // palm tree
-  thickLine(600, 700, 640, 470, 14, TRUNK);
-  fillEllipse(640, 452, 74, 16, GREEN);
-  fillEllipse(640, 452, 16, 74, GREEN);
-  fillTriangle(640, 452, 560, 420, 560, 470, GREEN);
-  fillTriangle(640, 452, 720, 420, 720, 470, GREEN);
-  fillCircle(628, 470, 10, COCONUT);
-  fillCircle(652, 466, 10, COCONUT);
+  // palm tree, fronds clear of the speech bubble
+  thickLine(600, 700, 640, 500, 14, TRUNK);
+  fillEllipse(640, 500, 74, 16, GREEN);
+  fillEllipse(640, 506, 16, 50, GREEN);
+  fillTriangle(640, 486, 560, 454, 560, 504, GREEN);
+  fillTriangle(640, 486, 720, 454, 720, 504, GREEN);
+  fillCircle(628, 504, 10, COCONUT);
+  fillCircle(652, 500, 10, COCONUT);
   // beach towel
   fillRect(720, 800, 980, 862, TOWEL);
   fillRect(760, 800, 790, 862, TOWEL2);
@@ -313,12 +323,12 @@ function drawBeach(): void {
   fillCircle(946, 652, 20, COCONUT);
   fillCircle(946, 646, 12, WHITE); // coconut top
   thickLine(946, 646, 962, 618, 5, YELLOW); // straw
-  // speech bubble
-  roundRect(548, 356, 1000, 520, 22, WHITE);
-  fillRect(548, 356, 1000, 366, WHITE);
-  fillTriangle(830, 514, 870, 514, 850, 580, WHITE);
-  drawTextCentered("DONE.", 774, 384, 6, INK);
-  drawTextCentered("I'M IN BALI.", 774, 446, 6, INK);
+  // speech bubble, raised so the palm fronds show below it
+  roundRect(548, 300, 1000, 452, 22, WHITE);
+  fillRect(548, 300, 1000, 310, WHITE);
+  fillTriangle(830, 446, 870, 446, 850, 570, WHITE);
+  drawTextCentered("DONE.", 774, 318, 6, INK);
+  drawTextCentered("I'M IN BALI.", 774, 372, 6, INK);
 }
 
 function drawScene(): void {
