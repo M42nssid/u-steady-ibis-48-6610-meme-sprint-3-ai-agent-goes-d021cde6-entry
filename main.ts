@@ -197,7 +197,7 @@ function encodePng(): Buffer {
   const raw = Buffer.alloc(H * (1 + W * 4));
   for (let y = 0; y < H; y++) {
     raw[y * (1 + W * 4)] = 0;
-    px.copy(raw, y * (1 + W * 4) + 1, y * W * 4, (y + 1) * W * 4);
+    raw.set(px.subarray(y * W * 4, (y + 1) * W * 4), y * (1 + W * 4) + 1);
   }
   const ihdr = Buffer.alloc(13);
   ihdr.writeUInt32BE(W, 0);
